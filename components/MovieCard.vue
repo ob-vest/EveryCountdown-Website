@@ -5,7 +5,7 @@
     <button
       class="rounded-2xl bg-[url('/matrix-template.png')] bg-cover bg-no-repeat bg-blend-multiply bg-black bg-opacity-60"
     >
-      <div class="w-56 h-40 justify-center flex flex-col items-center">
+      <div class="w-64 h-44 justify-center flex flex-col items-center">
         <div class="my-auto text-center">
           <h2 class="text-2xl text-center font-semibold line-clamp-2 mx-2">
             Battle Through The Heavens

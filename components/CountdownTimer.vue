@@ -2,17 +2,21 @@
   <div
     class="select-none rounded-b-2xl flex justify-center gap-4 w-full from-black to-transparent bg-gradient-to-t via-black pb-2"
   >
-    <div class="w-10 h-10 text-center">
+    <div class="w-fit h-10 text-center">
       <h4 class="font-bold">2</h4>
       <p>DAYS</p>
     </div>
-    <div class="w-10 h-10 text-center">
+    <div class="w-fit h-10 text-center">
       <h4 class="font-bold">2</h4>
-      <p>DAYS</p>
+      <p>HOURS</p>
     </div>
-    <div class="w-10 h-10 text-center">
+    <div class="w-fit h-10 text-center">
       <h4 class="font-bold">2</h4>
-      <p>DAYS</p>
+      <p>MINS</p>
+    </div>
+    <div class="w-fit h-10 text-center">
+      <h4 class="font-bold">2</h4>
+      <p>SECS</p>
     </div>
   </div>
 </template>
