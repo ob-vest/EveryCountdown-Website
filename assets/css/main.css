@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+html {
+@apply bg-black text-white
+
+}
+h1 {
+@apply text-4xl font-bold
+}
+h2 {
+@apply text-3xl font-bold
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('~/assets/NunitoSans-VariableFont.ttf');
+}
