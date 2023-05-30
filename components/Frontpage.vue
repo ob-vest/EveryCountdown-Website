@@ -1,17 +1,18 @@
 <template>
+  <Navbar />
   <div class="space-y-5 mx-5">
     <section class="w-full text-center">
       <h1 class="text-3xl py-20">
         Explore Exciting Release Dates <br />
         and Upcoming Events
       </h1>
-      <div class="flex gap-3 overflow-x-scroll no-scrollbar scrolling-auto">
+      <!-- <div class="flex gap-3 overflow-x-scroll no-scrollbar scrolling-auto">
         <CategoryButton />
         <CategoryButton />
         <CategoryButton />
         <CategoryButton />
         <CategoryButton />
-      </div>
+      </div> -->
     </section>
 
     <section class="space-y-5">

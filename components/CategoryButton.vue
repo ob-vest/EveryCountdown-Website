@@ -5,7 +5,7 @@
     >
       <div class="w-32 h-20 justify-center flex flex-col">
         <img class="h-10" src="/movies.svg" alt="" />
-        <h2 class="text-3xl font-medium">Movies</h2>
+        <h2 class="text-2xl font-normal">Movies</h2>
       </div>
     </button>
   </div>
