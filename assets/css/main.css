@@ -4,8 +4,8 @@
 
 
 html {
-@apply bg-black text-white
-
+@apply bg-black text-white;
+color-scheme: dark;
 }
 h1 {
 @apply text-4xl font-semibold
@@ -20,7 +20,9 @@ body {
 button {
    user-select: none;
 }
-
+#app > * {
+    background: black;
+  }
 @font-face {
     font-family: 'Nunito Sans';
     src: url('~/assets/NunitoSans-VariableFont.ttf');
