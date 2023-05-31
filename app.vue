@@ -1,5 +1,7 @@
 <template>
   <div>
-    <Frontpage />
+    <Navbar />
+    <SelectedItem />
+    <!-- <Frontpage /> -->
   </div>
 </template>

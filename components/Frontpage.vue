@@ -1,5 +1,4 @@
 <template>
-  <Navbar />
   <div class="space-y-5 mx-5">
     <section class="w-full text-center">
       <h1 class="text-3xl py-20">
