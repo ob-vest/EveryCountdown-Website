@@ -2,7 +2,11 @@
   <div class="space-y-5">
     <h1 class="mx-auto text-center">Movies</h1>
     <div class="grid grid-cols-3 gap-5">
-      <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
+      <div v-for="movie in movies" :key="movie.id">
+        <nuxt-link :to="'/movies/' + movie.id">
+          <MovieCard :movie="movie" />
+        </nuxt-link>
+      </div>
     </div>
     <!-- <ul>
       <li v-for="movie in movies" :key="movie.id">{{ movie.headline }}</li>

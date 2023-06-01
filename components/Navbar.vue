@@ -1,16 +1,23 @@
 <template>
   <nav>
     <div class="flex justify-between items-center py-5 mx-5">
-      <div
-        class="flex items-center space-x-3 hover:cursor-pointer hover:rotate-180 duration-500 transition-transform"
-      >
-        <img class="h-14 w-14" src="/logo.svg" alt="" />
-        <!-- <h1 class="text-2xl font-semibold">
+      <nuxt-link to="/">
+        <div
+          class="flex items-center space-x-3 hover:cursor-pointer hover:rotate-180 duration-500 transition-transform"
+        >
+          <img class="h-14 w-14" src="/logo.svg" alt="" />
+          <!-- <h1 class="text-2xl font-semibold">
           <span class="text-secondary">Every</span>Countdown
         </h1> -->
-      </div>
+        </div>
+      </nuxt-link>
       <div class="flex items-center space-x-5">
-        <button class="text-secondary hover-underline-animation">Movies</button>
+        <nuxt-link to="/movies">
+          <button class="text-secondary hover-underline-animation">
+            Movies
+          </button></nuxt-link
+        >
+
         <button class="text-secondary hover-underline-animation">TV</button>
         <button class="text-secondary hover-underline-animation">Anime</button>
         <button class="text-secondary hover-underline-animation">Tech</button>

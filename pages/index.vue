@@ -19,7 +19,7 @@
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
       >
-        <MovieCard v-for="movie in 6" />
+        <!-- <MovieCard v-for="movie in 6" /> -->
       </div>
     </section>
     <section class="space-y-5">
@@ -27,7 +27,7 @@
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
       >
-        <MovieCard v-for="movie in 6" />
+        <!-- <MovieCard v-for="movie in 6" /> -->
       </div>
     </section>
     <section class="space-y-5">
@@ -35,7 +35,7 @@
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
       >
-        <MovieCard v-for="movie in 6" />
+        <!-- <MovieCard v-for="movie in 6" /> -->
       </div>
     </section>
   </div>
