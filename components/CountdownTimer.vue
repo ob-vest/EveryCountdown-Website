@@ -47,11 +47,15 @@ export default {
     },
   },
   data() {
-    const now = new Date();
-
     return {
-      time: this.releaseDate - now,
+      time: this.remainingTime(),
     };
+  },
+  methods: {
+    remainingTime() {
+      const now = new Date();
+      return this.releaseDate - now;
+    },
   },
 };
 </script>

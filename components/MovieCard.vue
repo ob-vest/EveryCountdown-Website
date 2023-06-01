@@ -10,8 +10,9 @@
           <h2 class="text-2xl text-center font-semibold line-clamp-2 mx-2">
             {{ movie.headline }}
           </h2>
-          <p class="text-zinc-300">Season 10</p>
+          <p class="text-zinc-300">{{ movie.subheadline }}</p>
         </div>
+
         <CountdownTimer :releaseDate="new Date(movie.release_date)" />
       </div>
     </button>

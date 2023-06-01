@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-5 min-h-screen">
+  <div class="space-y-5">
     <h1 class="mx-auto text-center">Movies</h1>
     <div class="grid grid-cols-3 gap-5">
       <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />

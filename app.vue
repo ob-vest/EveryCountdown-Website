@@ -1,12 +1,12 @@
 <template>
   <div>
     <Navbar />
-    <!-- <SelectedItem /> -->
+    <SelectedItem />
 
     <!-- <Countdown></Countdown> -->
 
     <!-- <NuxtPage /> -->
-    <Movies />
+    <!-- <Movies class="min-h-screen" /> -->
     <Footer />
   </div>
 </template>
