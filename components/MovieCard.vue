@@ -12,7 +12,7 @@
           </h2>
           <p class="text-zinc-300">Season 10</p>
         </div>
-        <CountdownTimer />
+        <CountdownTimer :releaseDate="new Date(movie.release_date)" />
       </div>
     </button>
   </div>

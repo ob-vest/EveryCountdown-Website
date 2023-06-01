@@ -2,9 +2,11 @@
   <div>
     <Navbar />
     <!-- <SelectedItem /> -->
-    <Countdown />
+
+    <!-- <Countdown></Countdown> -->
+
     <!-- <NuxtPage /> -->
-    <!-- <Movies /> -->
+    <Movies />
     <Footer />
   </div>
 </template>
