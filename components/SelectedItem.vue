@@ -58,25 +58,8 @@
     </section>
     <section>
       <h1>Official Twitter Posts</h1>
-      <div class="bg-black w-full rounded-2xl">
-        <Tweet
-          class="tweet-container bg-black w-full rounded-2xl"
-          id="771763270273294336"
-          :options="{ theme: 'dark' }"
-        />
-      </div>
-
-      <Tweet id="14"></Tweet>
+      <!-- 
+      <Tweet id="14"></Tweet> -->
     </section>
   </div>
 </template>
-
-<script setup>
-import { Tweet } from "@jacksongross/vue-tweet-embed";
-</script>
-
-<style scoped>
-.tweet-container > #app > div {
-  background: black;
-}
-</style>

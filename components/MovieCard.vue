@@ -8,7 +8,7 @@
       <div class="w-64 h-44 justify-center flex flex-col items-center">
         <div class="my-auto text-center">
           <h2 class="text-2xl text-center font-semibold line-clamp-2 mx-2">
-            Battle Through The Heavens
+            {{ movie.headline }}
           </h2>
           <p class="text-zinc-300">Season 10</p>
         </div>
@@ -17,7 +17,17 @@
     </button>
   </div>
 </template>
-
+<script lang="ts">
+import { Movie } from "@/types/Movie";
+export default {
+  props: {
+    movie: {
+      type: Object as PropType<Movie>,
+      required: true,
+    },
+  },
+};
+</script>
 <style scoped>
 /* method 1 -> use border-image */
 .btn-gradient-1 {

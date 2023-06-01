@@ -1,7 +1,10 @@
 <template>
   <div>
     <Navbar />
-    <SelectedItem />
-    <!-- <Frontpage /> -->
+    <!-- <SelectedItem /> -->
+    <Countdown />
+    <!-- <NuxtPage /> -->
+    <!-- <Movies /> -->
+    <Footer />
   </div>
 </template>
