@@ -21,14 +21,14 @@
     <section class="space-y-2">
       <h2>Video</h2>
       <!-- <div class="flex justify-center w-full"> -->
-      <VideoPlayer />
-      <!-- <iframe
-          class="w-full h-96"
-          src="https://www.youtube.com/embed/OqLe85OfOSo"
-          title="YouTube video player"
-          frameborder="1"
-          allow="picture-in-picture; fullscreen"
-        ></iframe> -->
+      <!-- <VideoPlayer /> -->
+      <iframe
+        class="w-full h-96 rounded-2xl"
+        src="https://www.youtube.com/embed/aJLdLb9dwAY"
+        title="YouTube video player"
+        frameborder="1"
+        allow="picture-in-picture; fullscreen"
+      ></iframe>
       <!-- </div> -->
     </section>
     <section class="space-y-2">
