@@ -4,24 +4,18 @@
       class="bg-[url('/matrix-template.png')] h-96 bg-blend-multiply bg-black bg-opacity-60 rounded-3xl"
     >
       <div class="flex flex-col h-full justify-center items-center my-auto">
-        <h1>Battle Through The Heavens</h1>
-        <h2 class="text-secondary">Season 10</h2>
+        <h1>{{ movie?.headline }}</h1>
+        <h2 class="text-secondary">{{ movie?.subheadline }}</h2>
       </div>
     </section>
-    <section class="space-y-2">
+    <section v-if="movie?.description" class="space-y-2">
       <h2>Storyline</h2>
-      <p class="text-secondary text-left">
-        Battle Through the Heavens is a 2018 Chinese television series adapted
-        from the eponymous novel Doupo Cangqiong by Tiancan Tudou. It stars Leo
-        Wu, Lin Yun, Baron Chen, Li Qin, Xin Zhilei and Liu Meitong. The series
-        aired on Hunan TV from 3 September to 25 October 2018.
-      </p>
+      <p class="text-secondary text-left">{{ movie.description }}</p>
     </section>
 
     <section class="space-y-2">
       <h2>Video</h2>
       <!-- <div class="flex justify-center w-full"> -->
-      <!-- <VideoPlayer /> -->
       <iframe
         class="w-full h-96 rounded-2xl"
         src="https://www.youtube.com/embed/aJLdLb9dwAY"
@@ -31,10 +25,26 @@
       ></iframe>
       <!-- </div> -->
     </section>
-    <section class="space-y-2">
+    <section v-if="movie?.link" class="space-y-2">
       <h2>Links</h2>
       <div class="flex flex-col justify-start items-start space-y-4">
+        <!-- <p v-if="movie">{{ movie.link[0].title }}</p> -->
         <a
+          v-for="(link, index) in (movie.link as Link[])"
+          :key="index"
+          class="text-secondary bg-white bg-opacity-10 w-full py-3 rounded-lg hover-underline-animation flex items-center space-x-2 justify-start"
+          :href="link.url"
+          target="_blank"
+        >
+          <p class="text-left ml-5">{{ index + 1 }}</p>
+          <div class="text-center mx-auto w-full">
+            <h3 class="line-clamp-1">
+              {{ link.title }}
+            </h3>
+            <p class="text-secondary text-opacity-50">{{ link.url }}</p>
+          </div>
+        </a>
+        <!-- <a
           v-for="(item, index) in 5"
           :key="index"
           class="text-secondary bg-white bg-opacity-10 w-full py-3 rounded-lg hover-underline-animation flex items-center space-x-2 justify-start"
@@ -47,14 +57,11 @@
               One-Punch Man season 3 potential release date, cast, plot and
               everything you need to know
             </h3>
-            <p>
-              <span class="text-secondary text-opacity-50">https://www.</span
-              >netflix.com<span class="text-secondary text-opacity-50"
-                >/title/80199625</span
-              >
+            <p class="text-secondary text-opacity-50">
+              https://www.netflix.com/title/80199625
             </p>
           </div>
-        </a>
+        </a> -->
       </div>
     </section>
     <section>
@@ -65,3 +72,62 @@
     </section>
   </div>
 </template>
+<script lang="ts">
+import { Movie, Link } from "@/types/Movie";
+export default {
+  data() {
+    return {
+      movie: null as Movie | null,
+    };
+  },
+  methods: {
+    ModifyLinkArray() {
+      const originString =
+        '{"("The Matrix SPOILERS",https://twitter.com/NoMansSky/status/1664257765349498880,2023-06-02)","("The Matrix Revolutions: The IMAX Experience",https://twitter.com/NoMansSky/status/1664257765349498880,2023-06-02)"}';
+      // Remove the surrounding parentheses
+      const trimmedString = originString.slice(1, -1).slice(2, -2);
+      // console.log("This is trimmedString:", trimmedString);
+      // console.log("This is trimmedString2:", trimmedString.slice(2, -2));
+      // Split the string into individual link strings
+
+      const linkStrings = trimmedString.split(')","(');
+      console.log("This is array1:", linkStrings);
+      // Process each link string
+      const processedLinks = linkStrings.map((linkString) => {
+        const parts = linkString.split(",");
+        const linkTitle = parts[0];
+        const linkUrl = parts[1];
+        const linkDateAdded = parts[2];
+
+        return {
+          // title: linkTitle,
+          title: linkTitle,
+          url: linkUrl,
+          dateAdded: linkDateAdded,
+
+          // dateAdded: linkDateAdded,
+        } as Link;
+      });
+      console.log("This is array2:", processedLinks);
+      return processedLinks;
+    },
+  },
+  mounted() {
+    const id = this.$route.params.id;
+    fetch(
+      "https://everycountdown-apiservice-production.up.railway.app/movies/" + id
+    )
+      .then((response) => response.json())
+      .then((data: Movie) => {
+        this.movie = data;
+        this.movie.link = this.ModifyLinkArray();
+
+        // console.log("This is data:", this.parsedArray);
+        // this.links = this.parsedArray;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  },
+};
+</script>

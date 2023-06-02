@@ -5,4 +5,10 @@ export interface Movie {
   description: string;
   release_date: string;
   image_url: string;
+  link: Link[];
+}
+export interface Link {
+  title: string;
+  url: string;
+  dateAdded: string;
 }

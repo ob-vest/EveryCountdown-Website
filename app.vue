@@ -5,7 +5,7 @@
 
     <!-- <Countdown></Countdown> -->
 
-    <NuxtPage />
+    <NuxtPage class="min-h-screen" />
     <!-- <Movies class="min-h-screen" /> -->
     <Footer />
   </div>
