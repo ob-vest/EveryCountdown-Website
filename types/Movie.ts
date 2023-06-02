@@ -5,7 +5,7 @@ export interface Movie {
   description: string;
   release_date: string;
   image_url: string;
-  link: Link[];
+  link: string;
 }
 export interface Link {
   title: string;

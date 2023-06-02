@@ -25,12 +25,12 @@
       ></iframe>
       <!-- </div> -->
     </section>
-    <section v-if="movie?.link" class="space-y-2">
+    <section v-if="links" class="space-y-2">
       <h2>Links</h2>
       <div class="flex flex-col justify-start items-start space-y-4">
         <!-- <p v-if="movie">{{ movie.link[0].title }}</p> -->
         <a
-          v-for="(link, index) in (movie.link as Link[])"
+          v-for="(link, index) in links"
           :key="index"
           class="text-secondary bg-white bg-opacity-10 w-full py-3 rounded-lg hover-underline-animation flex items-center space-x-2 justify-start"
           :href="link.url"
@@ -78,23 +78,44 @@ export default {
   data() {
     return {
       movie: null as Movie | null,
+      links: null as Link[] | null,
     };
   },
+  mounted() {
+    const id = this.$route.params.id;
+    fetch(
+      "https://everycountdown-apiservice-production.up.railway.app/movies/" + id
+    )
+      .then((response) => response.json())
+      .then((data: Movie) => {
+        this.movie = data;
+        this.links = this.ModifyLinkArray(data.link);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  },
   methods: {
-    ModifyLinkArray() {
-      const originString =
-        '{"("The Matrix SPOILERS",https://twitter.com/NoMansSky/status/1664257765349498880,2023-06-02)","("The Matrix Revolutions: The IMAX Experience",https://twitter.com/NoMansSky/status/1664257765349498880,2023-06-02)"}';
+    ModifyLinkArray(link: string) {
+      // EXAMPLE STRING
+      // {"(\"The Matrix SPOILERS\",https://twitter.com/NoMansSky/status/1664257765349498880,2023-06-02)","(\"The Matrix Revolutions: The IMAX Experience\",https://twitter.com/NoMansSky/status/1664257765349498880,2023-06-02)"}
+      const originString = link;
+
       // Remove the surrounding parentheses
       const trimmedString = originString.slice(1, -1).slice(2, -2);
-      // console.log("This is trimmedString:", trimmedString);
-      // console.log("This is trimmedString2:", trimmedString.slice(2, -2));
-      // Split the string into individual link strings
 
+      console.log("This is origin link:", originString);
+      console.log("This is trimmed link:", trimmedString);
+
+      // Split the string into individual link strings
       const linkStrings = trimmedString.split(')","(');
+
       console.log("This is array1:", linkStrings);
       // Process each link string
       const processedLinks = linkStrings.map((linkString) => {
-        const parts = linkString.split(",");
+        // Remove the surrounding parentheses and escape characters
+        const cleanedLinkString = linkString.replace(/[\\"()]/g, "");
+        const parts = cleanedLinkString.split(",");
         const linkTitle = parts[0];
         const linkUrl = parts[1];
         const linkDateAdded = parts[2];
@@ -111,23 +132,6 @@ export default {
       console.log("This is array2:", processedLinks);
       return processedLinks;
     },
-  },
-  mounted() {
-    const id = this.$route.params.id;
-    fetch(
-      "https://everycountdown-apiservice-production.up.railway.app/movies/" + id
-    )
-      .then((response) => response.json())
-      .then((data: Movie) => {
-        this.movie = data;
-        this.movie.link = this.ModifyLinkArray();
-
-        // console.log("This is data:", this.parsedArray);
-        // this.links = this.parsedArray;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   },
 };
 </script>
