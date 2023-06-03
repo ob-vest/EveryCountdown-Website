@@ -12,17 +12,39 @@
       <h2>Storyline</h2>
       <p class="text-secondary text-left">{{ movie.description }}</p>
     </section>
-
+    <!-- <swiper-container>
+      <swiper-slide>Slide 1</swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+    </swiper-container> -->
     <section class="space-y-2" v-if="movie.videos">
       <h2>Video</h2>
+      <swiper-container
+        class="py-10"
+        :pagination="{
+          type: 'fraction',
+        }"
+        :navigation="true"
+        style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+      >
+        <!-- <div> -->
+        <swiper-slide
+          class="px-12"
+          v-for="(video, index) in movie.videos"
+          :key="index"
+        >
+          <iframe
+            class="w-full h-96 rounded-2xl"
+            :src="video.url"
+            :title="video.title"
+            frameborder="1"
+            allow="picture-in-picture; fullscreen"
+          ></iframe>
+          <p>{{ video.title }}</p>
+        </swiper-slide>
 
-      <iframe
-        class="w-full h-96 rounded-2xl"
-        :src="movie.videos[0].url"
-        :title="movie.videos[0].title"
-        frameborder="1"
-        allow="picture-in-picture; fullscreen"
-      ></iframe>
+        <!-- </div> -->
+      </swiper-container>
     </section>
     <section v-if="movie.links" class="space-y-2">
       <h2>Links</h2>
@@ -51,6 +73,9 @@
 </template>
 <script setup lang="ts">
 import { Movie, Link } from "@/types/Movie";
+import { register } from "swiper/element/bundle";
+
+register();
 
 const route = useRoute();
 const movie = ref(null as Movie | null);
@@ -63,3 +88,9 @@ const data = await $fetch(
 
 movie.value = data as Movie;
 </script>
+<style scoped>
+.swiper-button-prev,
+.swiper-button-next {
+  --swiper-theme-color: #ffffff;
+}
+</style>
