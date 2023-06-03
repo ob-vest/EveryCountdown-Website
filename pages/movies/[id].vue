@@ -13,21 +13,22 @@
       <p class="text-secondary text-left">{{ movie.description }}</p>
     </section>
 
-    <section class="space-y-2">
+    <section class="space-y-2" v-if="movie.videos">
       <h2>Video</h2>
+
       <iframe
         class="w-full h-96 rounded-2xl"
-        src="https://www.youtube.com/embed/aJLdLb9dwAY"
-        title="YouTube video player"
+        :src="movie.videos[0].url"
+        :title="movie.videos[0].title"
         frameborder="1"
         allow="picture-in-picture; fullscreen"
       ></iframe>
     </section>
-    <section v-if="links" class="space-y-2">
+    <section v-if="movie.links" class="space-y-2">
       <h2>Links</h2>
       <div class="flex flex-col justify-start items-start space-y-4">
         <a
-          v-for="(link, index) in links"
+          v-for="(link, index) in movie.links"
           :key="index"
           class="text-secondary bg-white bg-opacity-10 w-full py-3 rounded-lg hover-underline-animation flex items-center space-x-2 justify-start"
           :href="link.url"
@@ -53,7 +54,7 @@ import { Movie, Link } from "@/types/Movie";
 
 const route = useRoute();
 const movie = ref(null as Movie | null);
-const links = ref(null as Link[] | null);
+// const links = ref(null as Link[] | null);
 
 const data = await $fetch(
   "https://everycountdown-apiservice-production.up.railway.app/movies/" +
@@ -61,38 +62,4 @@ const data = await $fetch(
 ).catch((error) => error.data);
 
 movie.value = data as Movie;
-const linkString = movie.value.link;
-if (linkString != '{"(,,)"}') {
-  // If the link string is not empty
-  links.value = modifyLinkArray(linkString) as Link[];
-}
-
-function modifyLinkArray(link: string) {
-  // EXAMPLE STRING
-  // {"(\"The Matrix SPOILERS\",https://twitter.com/NoMansSky/status/1664257765349498880,2023-06-02)","(\"The Matrix Revolutions: The IMAX Experience\",https://twitter.com/NoMansSky/status/1664257765349498880,2023-06-02)"}
-  const originString = link;
-
-  // Remove the surrounding parentheses
-  const trimmedString = originString.slice(1, -1).slice(2, -2);
-
-  // Split the string into individual link strings
-  const linkStrings = trimmedString.split(')","(');
-
-  // Process each link string
-  const processedLinks = linkStrings.map((linkString) => {
-    // Remove the surrounding parentheses and escape characters
-    const cleanedLinkString = linkString.replace(/[\\"()]/g, "");
-    const parts = cleanedLinkString.split(",");
-    const linkTitle = parts[0];
-    const linkUrl = parts[1];
-    const linkDateAdded = parts[2];
-
-    return {
-      title: linkTitle,
-      url: linkUrl,
-      dateAdded: linkDateAdded,
-    } as Link;
-  });
-  return processedLinks;
-}
 </script>
