@@ -2,7 +2,7 @@
   <div
     class="hover:scale-110 transition-transform btn-gradient-1 w-fit mx-auto"
   >
-    <button
+    <div
       class="rounded-2xl bg-[url('/matrix-template.png')] bg-cover bg-no-repeat bg-blend-multiply bg-black bg-opacity-60"
     >
       <div class="w-64 h-44 justify-center flex flex-col items-center">
@@ -15,7 +15,7 @@
 
         <CountdownTimer :releaseDate="new Date(movie.release_date)" />
       </div>
-    </button>
+    </div>
   </div>
 </template>
 <script lang="ts">

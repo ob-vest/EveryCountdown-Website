@@ -43,9 +43,9 @@
         </a>
       </div>
     </section>
-    <section>
+    <!-- <section>
       <h1>Official Twitter Posts</h1>
-    </section>
+    </section> -->
   </div>
 </template>
 <script setup lang="ts">

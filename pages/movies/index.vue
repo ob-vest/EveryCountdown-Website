@@ -16,21 +16,17 @@
 
 <script lang="ts">
 import { Movie } from "@/types/Movie";
+// Could also just be simpler with script setup
 export default {
-  data() {
-    return {
-      movies: [] as Movie[],
-    };
-  },
-  mounted() {
-    fetch("https://everycountdown-apiservice-production.up.railway.app/movies")
-      .then((response) => response.json())
-      .then((data: Movie[]) => {
-        this.movies = data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  async setup() {
+    const movies = ref(null as Movie[] | null);
+
+    const data = await $fetch(
+      "https://everycountdown-apiservice-production.up.railway.app/movies"
+    ).catch((error) => error.data);
+
+    movies.value = data as Movie[];
+    return { movies };
   },
 };
 </script>

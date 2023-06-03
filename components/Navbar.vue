@@ -12,19 +12,48 @@
         </div>
       </nuxt-link>
       <div class="flex items-center space-x-5">
-        <nuxt-link to="/movies">
-          <button class="text-secondary hover-underline-animation">
-            Movies
-          </button></nuxt-link
+        <nuxt-link
+          to="/movies"
+          class="text-secondary transition-colors duration-1000"
+          active-class="text-white"
         >
-
-        <button class="text-secondary hover-underline-animation">TV</button>
-        <button class="text-secondary hover-underline-animation">Anime</button>
-        <button class="text-secondary hover-underline-animation">Tech</button>
-        <button class="text-secondary hover-underline-animation">
-          Politics
-        </button>
-        <button class="text-secondary hover-underline-animation">Other</button>
+          <button class="hover-underline-animation">Movies</button></nuxt-link
+        >
+        <nuxt-link
+          to="/tv"
+          class="text-secondary transition-colors duration-1000"
+          active-class="text-white"
+        >
+          <button class="hover-underline-animation">TV</button>
+        </nuxt-link>
+        <nuxt-link
+          to="/anime"
+          class="text-secondary transition-colors duration-1000"
+          active-class="text-white"
+        >
+          <button class="hover-underline-animation">Anime</button>
+        </nuxt-link>
+        <nuxt-link
+          to="/tech"
+          class="text-secondary transition-colors duration-1000"
+          active-class="text-white"
+        >
+          <button class="hover-underline-animation">Tech</button>
+        </nuxt-link>
+        <nuxt-link
+          to="/politics"
+          class="text-secondary transition-colors duration-1000"
+          active-class="text-white"
+        >
+          <button class="hover-underline-animation">Politics</button>
+        </nuxt-link>
+        <nuxt-link
+          to="/other"
+          class="text-secondary transition-colors duration-1000"
+          active-class="text-white"
+        >
+          <button class="hover-underline-animation">Other</button>
+        </nuxt-link>
       </div>
     </div>
   </nav>
