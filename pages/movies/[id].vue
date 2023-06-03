@@ -19,13 +19,13 @@
     </swiper-container> -->
     <section class="space-y-2" v-if="movie.videos">
       <h2>Video</h2>
+      <!-- https://swiperjs.com/element -->
       <swiper-container
-        class="py-10"
+        class="py-10 swiper-container"
         :pagination="{
-          type: 'fraction',
+          clickable: true,
         }"
         :navigation="true"
-        style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
       >
         <!-- <div> -->
         <swiper-slide
@@ -33,13 +33,16 @@
           v-for="(video, index) in movie.videos"
           :key="index"
         >
-          <iframe
-            class="w-full h-96 rounded-2xl"
-            :src="video.url"
-            :title="video.title"
-            frameborder="1"
-            allow="picture-in-picture; fullscreen"
-          ></iframe>
+          <div class="iframe-container">
+            <iframe
+              class="rounded-2xl"
+              :src="video.url"
+              :title="video.title"
+              frameborder="1"
+              allow="picture-in-picture; fullscreen"
+            ></iframe>
+          </div>
+
           <p>{{ video.title }}</p>
         </swiper-slide>
 
@@ -72,7 +75,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Movie, Link } from "@/types/Movie";
+import { Movie } from "@/types/Movie";
+
 import { register } from "swiper/element/bundle";
 
 register();
@@ -88,9 +92,25 @@ const data = await $fetch(
 
 movie.value = data as Movie;
 </script>
-<style scoped>
-.swiper-button-prev,
-.swiper-button-next {
-  --swiper-theme-color: #ffffff;
+
+<style>
+.swiper-container {
+  --swiper-navigation-color: #fff;
+  --swiper-pagination-color: #fff;
+  --swiper-pagination-bullet-inactive-color: #fff;
+}
+.iframe-container {
+  /* https://www.youtube.com/watch?v=9YffrCViTVk&t=67s */
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
