@@ -9,4 +9,11 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  vue: {
+    // https://github.com/cpreston321/nuxt-swiper/issues/55#issuecomment-1519865502
+    compilerOptions: {
+      isCustomElement: (tag: string) =>
+        ["swiper-container", "swiper-slide"].includes(tag),
+    },
+  },
 });

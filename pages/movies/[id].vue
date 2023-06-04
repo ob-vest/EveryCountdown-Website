@@ -27,9 +27,8 @@
         }"
         :navigation="true"
       >
-        <!-- <div> -->
         <swiper-slide
-          class="px-12"
+          class="px-0"
           v-for="(video, index) in movie.videos"
           :key="index"
         >
@@ -45,8 +44,6 @@
 
           <p>{{ video.title }}</p>
         </swiper-slide>
-
-        <!-- </div> -->
       </swiper-container>
     </section>
     <section v-if="movie.links" class="space-y-2">
