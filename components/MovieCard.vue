@@ -8,22 +8,22 @@
       <div class="w-64 h-44 justify-center flex flex-col items-center">
         <div class="my-auto text-center">
           <h2 class="text-2xl text-center font-semibold line-clamp-2 mx-2">
-            {{ movie.headline }}
+            {{ item.headline }}
           </h2>
-          <p class="text-zinc-300">{{ movie.subheadline }}</p>
+          <p class="text-zinc-300">{{ item.subheadline }}</p>
         </div>
 
-        <CountdownTimer :releaseDate="new Date(movie.release_date)" />
+        <CountdownTimer :releaseDate="new Date(item.release_date)" />
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { Movie } from "@/types/Movie";
+import { CategoryItem } from "@/types/CategoryItem";
 export default {
   props: {
-    movie: {
-      type: Object as PropType<Movie>,
+    item: {
+      type: Object as PropType<CategoryItem>,
       required: true,
     },
   },
