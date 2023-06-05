@@ -1,5 +1,5 @@
 <template>
   <div>
-    <CategoryItems />
+    <CategoryItems title="Movies" />
   </div>
 </template>

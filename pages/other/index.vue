@@ -1,5 +1,5 @@
 <template>
   <div>
-    <CategoryItems />
+    <CategoryItems title="Other Events and Countdowns" />
   </div>
 </template>
