@@ -7,13 +7,13 @@
       class="h-96 bg-blend-multiply bg-black bg-opacity-60 rounded-3xl"
     >
       <div
-        class="relative flex flex-col h-full justify-center items-center my-auto"
+        class="relative flex flex-col h-full justify-center items-center my-auto gap-5"
       >
         <div>
           <h1>{{ item.headline }}</h1>
           <h2 class="text-secondary">{{ item.subheadline }}</h2>
         </div>
-
+        <h2>{{ new Date(item.release_date).toLocaleDateString() }}</h2>
         <CountdownTimer
           class="absolute bottom-0"
           :isSelected="true"
