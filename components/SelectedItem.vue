@@ -13,7 +13,9 @@
           <h1>{{ item.headline }}</h1>
           <h2 class="text-secondary">{{ item.subheadline }}</h2>
         </div>
-        <h2>{{ new Date(item.release_date).toLocaleDateString() }}</h2>
+        <h2>
+          {{ formatDate(item.release_date) }}
+        </h2>
         <CountdownTimer
           class="absolute bottom-0"
           :isSelected="true"
@@ -39,6 +41,20 @@ const config = useRuntimeConfig();
 const route = useRoute();
 const item = ref(null as CategoryItem | null);
 
+// request a weekday along with a long date
+const options = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const options = { month: "long", day: "numeric", year: "numeric" };
+  const language =
+    typeof navigator !== "undefined" ? navigator.language : "en-US"; // use "en-US" as default language
+  return date.toLocaleDateString(language, options);
+}
 const { data } = await useFetch(route.path, {
   baseURL: config.public.baseURL,
 }).catch((error) => error.data);
