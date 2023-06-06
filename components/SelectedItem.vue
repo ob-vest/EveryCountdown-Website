@@ -6,9 +6,19 @@
       }"
       class="h-96 bg-blend-multiply bg-black bg-opacity-60 rounded-3xl"
     >
-      <div class="flex flex-col h-full justify-center items-center my-auto">
-        <h1>{{ item.headline }}</h1>
-        <h2 class="text-secondary">{{ item.subheadline }}</h2>
+      <div
+        class="relative flex flex-col h-full justify-center items-center my-auto"
+      >
+        <div>
+          <h1>{{ item.headline }}</h1>
+          <h2 class="text-secondary">{{ item.subheadline }}</h2>
+        </div>
+
+        <CountdownTimer
+          class="absolute bottom-0"
+          :isSelected="true"
+          :releaseDate="item.release_date"
+        />
       </div>
     </section>
     <section v-if="item.description" class="space-y-2">

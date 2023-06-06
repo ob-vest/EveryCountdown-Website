@@ -1,29 +1,99 @@
 <template>
-  <div
-    class="w-full select-none rounded-b-2xl from-black to-transparent bg-gradient-to-t via-black pb-2"
-  >
+  <div class="w-full">
+    <!-- This is the small version of the countdown timer -->
     <div
-      v-if="new Date(releaseDate) > new Date()"
-      class="flex justify-center gap-4 w-full"
+      :class="{
+        'from-black to-transparent bg-gradient-to-t via-black': !isSelected,
+      }"
+      class="w-full select-none rounded-b-2xl pb-2"
     >
-      <div class="text-center w-fit h-12">
-        <h4 class="font-bold text-xl">{{ days }}</h4>
-        <div class="text-sm text-gray-400">DAYS</div>
+      <div
+        v-if="new Date(releaseDate) > new Date()"
+        class="flex justify-center gap-4 w-full"
+      >
+        <div class="text-center w-fit">
+          <h4
+            :class="{
+              'text-4xl': isSelected,
+              'text-xl': !isSelected,
+            }"
+            class="font-bold"
+          >
+            {{ days }}
+          </h4>
+          <p
+            :class="{
+              'text-lg font-light': isSelected,
+              'text-sm font-medium': !isSelected,
+            }"
+            class="text-zinc-300"
+          >
+            DAYS
+          </p>
+        </div>
+        <div class="text-center w-fit mx-2">
+          <h4
+            :class="{
+              'text-4xl': isSelected,
+              'text-xl': !isSelected,
+            }"
+            class="font-bold"
+          >
+            {{ hours }}
+          </h4>
+          <p
+            :class="{
+              'text-lg font-light': isSelected,
+              'text-sm font-medium': !isSelected,
+            }"
+            class="text-zinc-300"
+          >
+            HOURS
+          </p>
+        </div>
+        <div class="text-center w-fit">
+          <h4
+            :class="{
+              'text-4xl': isSelected,
+              'text-xl': !isSelected,
+            }"
+            class="font-bold text-xl"
+          >
+            {{ minutes }}
+          </h4>
+          <p
+            :class="{
+              'text-lg font-light': isSelected,
+              'text-sm font-medium': !isSelected,
+            }"
+            class="text-zinc-300"
+          >
+            MIN
+          </p>
+        </div>
+        <div class="text-center w-fit mx-2">
+          <h4
+            :class="{
+              'text-4xl': isSelected,
+              'text-xl': !isSelected,
+            }"
+            class="font-bold"
+          >
+            {{ seconds }}
+          </h4>
+          <p
+            :class="{
+              'text-lg font-light': isSelected,
+              'text-sm font-medium': !isSelected,
+            }"
+            class="text-zinc-300"
+          >
+            SEC
+          </p>
+        </div>
       </div>
-      <div class="text-center w-fit h-12 mx-2">
-        <h4 class="font-bold text-xl">{{ hours }}</h4>
-        <div class="text-sm text-gray-400">HOURS</div>
-      </div>
-      <div class="text-center w-fit h-12">
-        <h4 class="font-bold text-xl">{{ minutes }}</h4>
-        <div class="text-sm text-gray-400">MIN</div>
-      </div>
-      <div class="text-center w-fit h-12 mx-2">
-        <h4 class="font-bold text-xl">{{ seconds }}</h4>
-        <p class="text-sm text-gray-400">SEC</p>
-      </div>
+      <h2 v-else class="text-center">The wait is over!</h2>
     </div>
-    <h2 v-else class="text-center">The wait is over!</h2>
   </div>
 </template>
 <script lang="ts">
@@ -36,6 +106,10 @@ interface Countdown {
 
 export default {
   props: {
+    isSelected: {
+      type: Boolean,
+      default: false,
+    },
     releaseDate: {
       type: String,
       required: true,
@@ -81,12 +155,6 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-p {
-  @apply text-zinc-300 text-sm font-light;
-}
-</style>
 
 <!-- <script lang="ts">
 import { defineComponent, PropType } from "vue";
