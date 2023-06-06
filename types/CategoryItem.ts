@@ -4,9 +4,10 @@ export interface CategoryItem {
   id: number;
   headline: string;
   subheadline: string;
-  description: string;
+  description?: string;
   release_date: string;
+  confirmed: boolean;
   image_url: string;
-  links: Link[];
-  videos: Video[];
+  links?: Link[];
+  videos?: Video[];
 }

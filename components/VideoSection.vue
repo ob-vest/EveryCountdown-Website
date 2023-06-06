@@ -1,5 +1,5 @@
 <template>
-  <section class="space-y-2" v-if="videos">
+  <section class="space-y-2">
     <h2>Video</h2>
     <!-- https://swiperjs.com/element -->
     <swiper-container

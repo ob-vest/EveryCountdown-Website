@@ -57,7 +57,7 @@
               'text-4xl': isSelected,
               'text-xl': !isSelected,
             }"
-            class="font-bold text-xl"
+            class="font-bold"
           >
             {{ minutes }}
           </h4>

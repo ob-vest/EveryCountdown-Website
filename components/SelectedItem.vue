@@ -4,18 +4,22 @@
       :style="{
         backgroundImage: `url('${item.image_url}')`,
       }"
-      class="h-96 bg-blend-multiply bg-black bg-opacity-60 rounded-3xl"
+      class="h-96 bg-blend-multiply bg-cover bg-black bg-opacity-60 rounded-3xl"
     >
       <div
         class="relative flex flex-col h-full justify-center items-center my-auto gap-5"
       >
-        <div>
-          <h1>{{ item.headline }}</h1>
-          <h2 class="text-secondary">{{ item.subheadline }}</h2>
+        <div class="space-y-3">
+          <h1 class="text-3xl md:text-4xl">{{ item.headline }}</h1>
+          <h2 class="text-2xl md:text-3xl text-secondary">
+            {{ item.subheadline }}
+          </h2>
+          <UnconfirmedBadge v-if="!item.confirmed" />
         </div>
-        <h2>
+        <h2 class="text-xl">
           {{ formatDate(item.release_date) }}
         </h2>
+
         <CountdownTimer
           class="absolute bottom-0"
           :isSelected="true"
@@ -28,8 +32,8 @@
       <p class="text-secondary text-left">{{ item.description }}</p>
     </section>
 
-    <VideoSection :videos="item.videos" />
-    <LinkSection :links="item.links" />
+    <VideoSection v-if="item.videos" :videos="item.videos" />
+    <LinkSection v-if="item.links != null" :links="item.links" />
     <!-- <section>
         <h1>Official Twitter Posts</h1>
       </section> -->
@@ -41,13 +45,6 @@ const config = useRuntimeConfig();
 const route = useRoute();
 const item = ref(null as CategoryItem | null);
 
-// request a weekday along with a long date
-const options = {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-};
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   const options = { month: "long", day: "numeric", year: "numeric" };

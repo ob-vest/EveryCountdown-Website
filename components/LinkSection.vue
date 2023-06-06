@@ -1,5 +1,5 @@
 <template>
-  <section v-if="links" class="space-y-2">
+  <section class="space-y-2">
     <h2>Links</h2>
     <div class="flex flex-col justify-start items-start space-y-4">
       <a

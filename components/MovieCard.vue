@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="hover:scale-110 transition-transform btn-gradient-1 w-full h-56 sm:w-64 sm:h-44 mx-auto"
+      class="hover:scale-110 transition-transform btn-gradient-1 w-full h-56 sm:w-64 sm:h-64 mx-auto"
     >
       <div
         :style="{
@@ -10,11 +10,12 @@
         class="w-full h-full rounded-2xl bg-cover bg-no-repeat bg-blend-multiply bg-black bg-opacity-60"
       >
         <div class="w-full h-full justify-center flex flex-col items-center">
-          <div class="my-auto text-center">
+          <div class="my-auto text-center space-y-3">
             <h2 class="text-2xl text-center font-semibold line-clamp-2 mx-2">
               {{ item.headline }}
             </h2>
             <p class="text-zinc-300">{{ item.subheadline }}</p>
+            <UnconfirmedBadge v-if="!item.confirmed" />
           </div>
 
           <CountdownTimer :releaseDate="item.release_date" />
