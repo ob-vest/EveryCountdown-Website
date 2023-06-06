@@ -1,7 +1,10 @@
 <template>
   <div class="w-full text-center space-y-10 px-5" v-if="item">
     <section
-      class="bg-[url('/matrix-template.png')] h-96 bg-blend-multiply bg-black bg-opacity-60 rounded-3xl"
+      :style="{
+        backgroundImage: `url('${item.image_url}')`,
+      }"
+      class="h-96 bg-blend-multiply bg-black bg-opacity-60 rounded-3xl"
     >
       <div class="flex flex-col h-full justify-center items-center my-auto">
         <h1>{{ item.headline }}</h1>
@@ -22,10 +25,12 @@
 </template>
 <script setup lang="ts">
 import { CategoryItem } from "@/types/CategoryItem";
-import BASE_URL from "@/services/api";
+const config = useRuntimeConfig();
 const route = useRoute();
 const item = ref(null as CategoryItem | null);
 
-const data = await $fetch(BASE_URL + route.path).catch((error) => error.data);
-item.value = data as CategoryItem;
+const { data } = await useFetch(route.path, {
+  baseURL: config.public.baseURL,
+}).catch((error) => error.data);
+item.value = data.value as CategoryItem;
 </script>

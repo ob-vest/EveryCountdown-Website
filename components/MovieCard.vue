@@ -4,8 +4,10 @@
       class="hover:scale-110 transition-transform btn-gradient-1 w-full h-56 sm:w-64 sm:h-44 mx-auto"
     >
       <div
-        class="w-full h-full rounded-2xl bg-[url('https://firebasestorage.googleapis.com/v0/b/everycountdown-888.appspot.com/o/Apple-WWDC-2023.png?alt=media&token=319adf96-5ae0-44c8-a7ac-e68175480bb4')] bg-cover bg-no-repeat bg-blend-multiply bg-black bg-opacity-60"
-        @error="handleError"
+        :style="{
+          backgroundImage: `url('${item.image_url}')`,
+        }"
+        class="w-full h-full rounded-2xl bg-cover bg-no-repeat bg-blend-multiply bg-black bg-opacity-60"
       >
         <div class="w-full h-full justify-center flex flex-col items-center">
           <div class="my-auto text-center">
@@ -30,20 +32,9 @@ export default {
       required: true,
     },
   },
-  methods: {
-    handleError(event: Event) {
-      const backgroundImage = event.target as HTMLDivElement;
-      backgroundImage.style.backgroundImage = `url('/bg-fallback.png')`;
-    },
-  },
 };
 </script>
 <style scoped>
-/* method 1 -> use border-image */
-.bg {
-  background-image: url("https://firebasestorage.googleapis.com/v0/b/everycountdown-888.appspot.com/o/Apple-WWDC-2023.png?alt=media&token=319adf96-5ae0-44c8-a7ac-e68175480bb4"),
-    url("/bg-fallback.png");
-}
 .btn-gradient-1 {
   /* Border */
   border: 0.5px solid transparent;

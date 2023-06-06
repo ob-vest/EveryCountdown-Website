@@ -6,6 +6,7 @@ export interface CategoryItem {
   subheadline: string;
   description: string;
   release_date: string;
+  image_url: string;
   links: Link[];
   videos: Video[];
 }

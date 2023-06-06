@@ -16,7 +16,6 @@
 
 <script lang="ts">
 import { CategoryItem } from "@/types/CategoryItem";
-import BASE_URL from "@/services/api";
 // Could also just be simpler with script setup
 export default {
   props: {
@@ -28,12 +27,14 @@ export default {
   async setup() {
     const items = ref(null as CategoryItem[] | null);
     const route = useRoute();
+    const config = useRuntimeConfig();
     console.log(route.path);
-    const data = await $fetch(BASE_URL + route.path).catch(
-      (error) => error.data
-    );
+    const { data } = await useFetch(route.path, {
+      baseURL: config.public.baseURL,
+    });
+
     console.log(data);
-    items.value = data as CategoryItem[];
+    items.value = data.value as CategoryItem[];
     return { items: items };
   },
   computed: {
