@@ -1,5 +1,5 @@
 <template>
   <div>
-    <CategoryItems title="Politics" />
+    <CategoryItems title="Games" />
   </div>
 </template>

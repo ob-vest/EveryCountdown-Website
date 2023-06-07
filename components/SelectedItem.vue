@@ -41,6 +41,7 @@
 </template>
 <script setup lang="ts">
 import { CategoryItem } from "@/types/CategoryItem";
+
 const config = useRuntimeConfig();
 const route = useRoute();
 const item = ref(null as CategoryItem | null);

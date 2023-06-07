@@ -41,11 +41,11 @@
           <button class="hover-underline-animation">Tech</button>
         </nuxt-link>
         <nuxt-link
-          to="/politics"
+          to="/games"
           class="text-secondary transition-colors duration-1000"
           active-class="text-white"
         >
-          <button class="hover-underline-animation">Politics</button>
+          <button class="hover-underline-animation">Games</button>
         </nuxt-link>
         <nuxt-link
           to="/other"
