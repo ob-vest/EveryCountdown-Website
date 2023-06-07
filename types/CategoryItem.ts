@@ -3,7 +3,7 @@ import { Link, Video } from "@/types/Shared";
 export interface CategoryItem {
   id: number;
   headline: string;
-  subheadline: string;
+  subheadline?: string;
   description?: string;
   release_date: string;
   confirmed: boolean;

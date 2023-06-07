@@ -56,4 +56,12 @@ const { data } = await useFetch(route.path, {
   baseURL: config.public.baseURL,
 }).catch((error) => error.data);
 item.value = data.value as CategoryItem;
+
+useSeoMeta({
+  title: item.value.headline + " | EveryCountdown",
+  description:
+    "Check out the countdown for " +
+    item.value.headline +
+    " on EveryCountdown and find all the relevant information, including the release date, description, and more.",
+});
 </script>

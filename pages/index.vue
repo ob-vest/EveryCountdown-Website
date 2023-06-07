@@ -40,7 +40,13 @@
     </section>
   </div>
 </template>
-
+<script setup lang="ts">
+useSeoMeta({
+  title: "EveryCountdown",
+  description:
+    "Discover exciting release dates and upcoming events spanning from movies to tech events, with countdowns and access to videos and news coverage for the event.",
+});
+</script>
 <style>
 /* Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {

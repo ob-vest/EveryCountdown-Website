@@ -24,7 +24,7 @@ export default {
       required: true,
     },
   },
-  async setup() {
+  async setup(props) {
     const items = ref(null as CategoryItem[] | null);
     const route = useRoute();
     const config = useRuntimeConfig();
@@ -32,10 +32,17 @@ export default {
     const { data } = await useFetch(route.path, {
       baseURL: config.public.baseURL,
     });
-
-    console.log(data);
+    useSeoMeta({
+      title: "List of " + props.title.toLowerCase() + " | EveryCountdown",
+      description:
+        "List of all " +
+        props.title.toLowerCase() +
+        " with their countdowns. Select to find all the relevant information, including the release date, description, and more.",
+    });
     items.value = data.value as CategoryItem[];
-    return { items: items };
+    return {
+      items: items,
+    };
   },
   computed: {
     path() {
