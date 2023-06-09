@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      baseURL: "http://127.0.0.1:3001",
+      baseURL: "https://everycountdown-apiservice-production.up.railway.app",
     },
   },
   postcss: {
