@@ -5,7 +5,7 @@
         <div
           class="flex items-center space-x-3 hover:cursor-pointer hover:rotate-180 duration-500 transition-transform"
         >
-          <img class="h-14 w-14" src="/logo.svg" alt="" />
+          <img class="h-14 w-14" src="/logo.svg" alt="Home" />
           <!-- <h1 class="text-2xl font-semibold">
           <span class="text-secondary">Every</span>Countdown
         </h1> -->
@@ -18,7 +18,7 @@
             class="ml-auto h-10 touch-manipulation"
             @click="toggleMenu"
             src="/burgermenu.svg"
-            alt=""
+            alt="Category menu"
           />
           <div
             v-if="showMenu"
