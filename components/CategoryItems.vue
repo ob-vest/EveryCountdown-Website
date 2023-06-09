@@ -1,6 +1,8 @@
 <template>
   <div class="space-y-5">
     <h1 class="mx-auto text-center">{{ title }}</h1>
+    <slot />
+
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
       <div v-for="item in items" :key="item.id">
         <nuxt-link :to="'/' + item.type + '/' + item.id">
