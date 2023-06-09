@@ -44,11 +44,5 @@ export default {
       items: items,
     };
   },
-  computed: {
-    path() {
-      console.log(this.$route.path);
-      return this.$route.path + "/";
-    },
-  },
 };
 </script>

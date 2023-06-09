@@ -19,11 +19,27 @@
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
       >
-        <!-- <MovieCard v-for="movie in 6" /> -->
+        <div v-for="item in popularItems">
+          <nuxt-link :to="item.type + '/' + item.id">
+            <MovieCard :item="item" />
+          </nuxt-link>
+        </div>
       </div>
     </section>
     <section class="space-y-5">
       <h2>Ending soon</h2>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
+      >
+        <div v-for="item in endingSoonItems">
+          <nuxt-link :to="item.type + '/' + item.id">
+            <MovieCard :item="item" />
+          </nuxt-link>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="space-y-5">
+      <h2>Recently added</h2>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
       >
@@ -33,26 +49,24 @@
           </nuxt-link>
         </div>
       </div>
-    </section>
-    <section class="space-y-5">
-      <h2>Recently added</h2>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
-      >
-        <!-- <MovieCard v-for="movie in 6" /> -->
-      </div>
-    </section>
+    </section> -->
   </div>
 </template>
 <script setup lang="ts">
 import { CategoryItem } from "@/types/CategoryItem";
 const config = useRuntimeConfig();
-const recentItems = ref(null as CategoryItem | null);
+const popularItems = ref(null as CategoryItem | null);
+const endingSoonItems = ref(null as CategoryItem | null);
 const { data: recentData } = await useFetch("/ending", {
   baseURL: config.public.baseURL,
 });
-console.log(recentData.value);
-recentItems.value = recentData.value as CategoryItem;
+const { data: popularData } = await useFetch("/ending", {
+  baseURL: config.public.baseURL,
+});
+// console.log(recentData.value);
+console.log(popularData.value);
+popularItems.value = popularData.value as CategoryItem;
+endingSoonItems.value = recentData.value as CategoryItem;
 
 useSeoMeta({
   title: "EveryCountdown",
