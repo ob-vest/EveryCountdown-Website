@@ -12,7 +12,7 @@
         class="flex justify-center gap-4 w-full"
       >
         <div class="text-center w-fit">
-          <h4
+          <div
             :class="{
               'text-4xl': isSelected,
               'text-xl': !isSelected,
@@ -20,7 +20,7 @@
             class="font-bold"
           >
             {{ days }}
-          </h4>
+          </div>
           <p
             :class="{
               'text-lg font-light': isSelected,
@@ -32,7 +32,7 @@
           </p>
         </div>
         <div class="text-center w-fit mx-2">
-          <h4
+          <div
             :class="{
               'text-4xl': isSelected,
               'text-xl': !isSelected,
@@ -40,7 +40,7 @@
             class="font-bold"
           >
             {{ hours }}
-          </h4>
+          </div>
           <p
             :class="{
               'text-lg font-light': isSelected,
@@ -52,7 +52,7 @@
           </p>
         </div>
         <div class="text-center w-fit">
-          <h4
+          <div
             :class="{
               'text-4xl': isSelected,
               'text-xl': !isSelected,
@@ -60,7 +60,7 @@
             class="font-bold"
           >
             {{ minutes }}
-          </h4>
+          </div>
           <p
             :class="{
               'text-lg font-light': isSelected,
@@ -72,7 +72,7 @@
           </p>
         </div>
         <div class="text-center w-fit mx-2">
-          <h4
+          <div
             :class="{
               'text-4xl': isSelected,
               'text-xl': !isSelected,
@@ -80,7 +80,7 @@
             class="font-bold"
           >
             {{ seconds }}
-          </h4>
+          </div>
           <p
             :class="{
               'text-lg font-light': isSelected,

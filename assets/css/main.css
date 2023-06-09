@@ -26,4 +26,5 @@ button {
 @font-face {
     font-family: 'Nunito Sans';
     src: url('~/assets/NunitoSans-VariableFont.ttf');
+    font-display: swap;
 }

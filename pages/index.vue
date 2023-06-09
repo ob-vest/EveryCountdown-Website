@@ -64,7 +64,7 @@ const { data: popularData } = await useFetch("/ending", {
   baseURL: config.public.baseURL,
 });
 // console.log(recentData.value);
-console.log(popularData.value);
+// console.log(popularData.value);
 popularItems.value = popularData.value as CategoryItem;
 endingSoonItems.value = recentData.value as CategoryItem;
 

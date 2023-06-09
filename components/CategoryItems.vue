@@ -28,7 +28,7 @@ export default {
     const items = ref(null as CategoryItem[] | null);
     const route = useRoute();
     const config = useRuntimeConfig();
-    console.log(route.path);
+    // console.log(route.path);
     const { data } = await useFetch(route.path, {
       baseURL: config.public.baseURL,
     });

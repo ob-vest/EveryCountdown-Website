@@ -8,11 +8,16 @@
           <!-- <li>
             <a href="#" class="mr-4 hover:text-white md:mr-6">About</a>
           </li> -->
+
           <li>
-            <nuxt-link to="/privacy-policy">
-              <a class="mr-4 hover:text-white md:mr-6">Privacy Policy</a>
+            <nuxt-link
+              class="mr-4 hover:text-white md:mr-6"
+              to="/privacy-policy"
+            >
+              Privacy Policy
             </nuxt-link>
           </li>
+
           <li>
             <a href="mailto: everycountdown@invoke.dk" class="hover:text-white"
               >Contact</a
