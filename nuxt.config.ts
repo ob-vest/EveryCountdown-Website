@@ -6,6 +6,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en",
       },
+      meta: [{ name: "darkreader-lock" }],
     },
   },
   runtimeConfig: {
