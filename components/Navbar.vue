@@ -15,7 +15,7 @@
       <div class="flex sm:hidden items-center justify-end w-full text-right">
         <div class="relative w-full">
           <img
-            class="ml-auto h-10 touch-manipulation"
+            class="ml-auto h-10 w-10 touch-manipulation"
             @click="toggleMenu"
             src="/burgermenu.svg"
             alt="Category menu"
