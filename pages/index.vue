@@ -19,8 +19,14 @@
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
       >
-        <div v-for="item in popularItems">
-          <nuxt-link :to="item.type + '/' + item.id">
+        <div v-for="(item, index) in popularItems">
+          <!-- Hides last element, to make it look even when its small size, -->
+          <nuxt-link
+            :class="{
+              'hidden md:block': index == 8,
+            }"
+            :to="item.type + '/' + item.id"
+          >
             <MovieCard :item="item" />
           </nuxt-link>
         </div>
@@ -60,7 +66,7 @@ const endingSoonItems = ref(null as CategoryItem | null);
 const { data: recentData } = await useFetch("/ending", {
   baseURL: config.public.baseURL,
 });
-const { data: popularData } = await useFetch("/ending", {
+const { data: popularData } = await useFetch("/popular", {
   baseURL: config.public.baseURL,
 });
 // console.log(recentData.value);
