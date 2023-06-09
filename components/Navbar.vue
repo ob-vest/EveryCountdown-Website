@@ -13,42 +13,42 @@
       </nuxt-link>
       <div class="flex items-center space-x-5">
         <nuxt-link
-          to="/movies"
+          to="/movie/catalog"
           class="text-secondary transition-colors duration-1000"
           active-class="text-white"
         >
           <button class="hover-underline-animation">Movies</button></nuxt-link
         >
         <nuxt-link
-          to="/tv"
+          to="/tv/catalog"
           class="text-secondary transition-colors duration-1000"
           active-class="text-white"
         >
           <button class="hover-underline-animation">TV</button>
         </nuxt-link>
         <nuxt-link
-          to="/anime"
+          to="/anime/catalog"
           class="text-secondary transition-colors duration-1000"
           active-class="text-white"
         >
           <button class="hover-underline-animation">Anime</button>
         </nuxt-link>
         <nuxt-link
-          to="/tech"
+          to="/tech/catalog"
           class="text-secondary transition-colors duration-1000"
           active-class="text-white"
         >
           <button class="hover-underline-animation">Tech</button>
         </nuxt-link>
         <nuxt-link
-          to="/games"
+          to="/game/catalog"
           class="text-secondary transition-colors duration-1000"
           active-class="text-white"
         >
           <button class="hover-underline-animation">Games</button>
         </nuxt-link>
         <nuxt-link
-          to="/other"
+          to="/other/catalog"
           class="text-secondary transition-colors duration-1000"
           active-class="text-white"
         >

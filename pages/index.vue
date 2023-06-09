@@ -27,7 +27,11 @@
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
       >
-        <!-- <MovieCard v-for="movie in 6" /> -->
+        <div v-for="item in recentItems">
+          <nuxt-link :to="item.type + '/' + item.id">
+            <MovieCard :item="item" />
+          </nuxt-link>
+        </div>
       </div>
     </section>
     <section class="space-y-5">
@@ -41,6 +45,15 @@
   </div>
 </template>
 <script setup lang="ts">
+import { CategoryItem } from "@/types/CategoryItem";
+const config = useRuntimeConfig();
+const recentItems = ref(null as CategoryItem | null);
+const { data: recentData } = await useFetch("/ending", {
+  baseURL: config.public.baseURL,
+});
+console.log(recentData.value);
+recentItems.value = recentData.value as CategoryItem;
+
 useSeoMeta({
   title: "EveryCountdown",
   description:

@@ -3,7 +3,7 @@
     <h1 class="mx-auto text-center">{{ title }}</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
       <div v-for="item in items" :key="item.id">
-        <nuxt-link :to="path + item.id">
+        <nuxt-link :to="'/' + item.type + '/' + item.id">
           <MovieCard :item="item" />
         </nuxt-link>
       </div>
