@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="hover:scale-110 transition-transform btn-gradient-1 w-full h-56 sm:w-64 sm:h-64 mx-auto"
+      class="sm:hover:scale-110 transition-transform btn-gradient-1 w-full h-56 sm:w-64 sm:h-64 mx-auto"
     >
       <div
         :style="{
