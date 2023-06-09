@@ -11,7 +11,72 @@
         </h1> -->
         </div>
       </nuxt-link>
-      <div class="flex items-center space-x-5">
+      <!-- THIS IS MOBILE NAV BAR -->
+      <div class="flex sm:hidden items-center justify-end w-full text-right">
+        <div class="relative w-full">
+          <img
+            class="ml-auto h-10 touch-manipulation"
+            @click="toggleMenu"
+            src="/burgermenu.svg"
+            alt=""
+          />
+          <div
+            v-if="showMenu"
+            class="animate-fade-in max-w-full flex flex-col space-y-5 w-56 right-0 absolute mt-5 bg-stone-800 rounded-lg p-5"
+          >
+            <nuxt-link
+              @click="toggleMenu"
+              to="/movie/catalog"
+              class="text-2xl text-secondary transition-colors duration-1000"
+              active-class="text-white"
+            >
+              <a>Movies</a></nuxt-link
+            >
+            <nuxt-link
+              @click="toggleMenu"
+              to="/tv/catalog"
+              class="text-2xl text-secondary transition-colors duration-1000"
+              active-class="text-white"
+            >
+              <a>TV</a>
+            </nuxt-link>
+            <nuxt-link
+              @click="toggleMenu"
+              to="/anime/catalog"
+              class="text-2xl text-secondary transition-colors duration-1000"
+              active-class="text-white"
+            >
+              <a>Anime</a>
+            </nuxt-link>
+            <nuxt-link
+              @click="toggleMenu"
+              to="/tech/catalog"
+              class="text-2xl text-secondary transition-colors duration-1000"
+              active-class="text-white"
+            >
+              <a>Tech</a>
+            </nuxt-link>
+            <nuxt-link
+              @click="toggleMenu"
+              to="/game/catalog"
+              class="text-2xl text-secondary transition-colors duration-1000"
+              active-class="text-white"
+            >
+              <a>Games</a>
+            </nuxt-link>
+            <nuxt-link
+              @click="toggleMenu"
+              to="/other/catalog"
+              class="text-2xl text-secondary transition-colors duration-1000"
+              active-class="text-white"
+            >
+              <a>Other</a>
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
+      <!-- THIS IS DESKTOP NAV BAR -->
+      <div class="hidden sm:flex items-center space-x-5">
         <nuxt-link
           to="/movie/catalog"
           class="text-secondary transition-colors duration-1000"
@@ -59,6 +124,20 @@
   </nav>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      showMenu: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.showMenu = !this.showMenu;
+    },
+  },
+};
+</script>
 <style scoped>
 /* SOURCE: https://www.30secondsofcode.org/css/s/hover-underline-animation/ */
 .hover-underline-animation {
@@ -82,5 +161,17 @@
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>

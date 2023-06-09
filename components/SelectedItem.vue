@@ -31,7 +31,6 @@
       <h2>Description</h2>
       <p class="text-secondary text-left">{{ item.description }}</p>
     </section>
-
     <VideoSection v-if="item.videos" :videos="item.videos" />
     <LinkSection v-if="item.links != null" :links="item.links" />
     <!-- <section>
