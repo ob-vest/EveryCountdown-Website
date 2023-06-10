@@ -1,13 +1,10 @@
 <template>
   <div>
     <div
-      class="sm:hover:scale-110 transition-transform btn-gradient-1 w-full h-56 sm:w-64 sm:h-64 mx-auto"
+      class="relative sm:hover:scale-110 transition-transform btn-gradient-1 w-full h-56 sm:w-64 sm:h-64 mx-auto"
     >
       <div
-        :style="{
-          backgroundImage: `url('${item.image_url}')`,
-        }"
-        class="w-full h-full rounded-2xl bg-cover bg-no-repeat bg-blend-multiply bg-black bg-opacity-60"
+        class="absolute z-10 w-full h-full rounded-2xl bg-cover bg-no-repeat bg-blend-multiply bg-black bg-opacity-60"
       >
         <div class="w-full h-full justify-center flex flex-col items-center">
           <div class="my-auto text-center space-y-3">
@@ -21,6 +18,11 @@
           <CountdownTimer :releaseDate="item.release_date" />
         </div>
       </div>
+      <nuxt-img
+        class="absolute w-full h-full rounded-2xl"
+        :src="item.image_url"
+        :alt="item.headline"
+      />
     </div>
   </div>
 </template>
