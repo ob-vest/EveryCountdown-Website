@@ -22,6 +22,7 @@
         class="absolute w-full h-full rounded-2xl"
         :src="item.image_url"
         :alt="item.headline"
+        loading="lazy"
       />
     </div>
   </div>
