@@ -1,7 +1,7 @@
 <template>
-  <div class="space-y-5 mx-5">
+  <div class="space-y-5">
     <section class="w-full text-center">
-      <h1 class="text-3xl py-20">
+      <h1 class="text-3xl py-20 mx-5">
         Explore Exciting Release Dates <br />
         and Upcoming Events
       </h1>
@@ -14,7 +14,7 @@
       </div> -->
     </section>
 
-    <section class="space-y-5">
+    <section class="space-y-5 mx-5">
       <h2>Popular</h2>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"

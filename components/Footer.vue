@@ -1,20 +1,17 @@
 <template>
-  <footer class="bg-white rounded-lg shadow dark:bg-black m-4">
-    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-      <div class="sm:flex sm:items-center sm:justify-center">
+  <footer class="mb-4 mt-14">
+    <div class="w-full max-w-screen-xl mx-auto p-4 space-y-5">
+      <div class="flex items-center justify-center">
         <ul
-          class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400"
+          class="flex flex-wrap items-center mb-0 text-sm font-medium text-gray-400 space-x-5"
         >
           <li>
-            <nuxt-link class="mr-4 hover:text-white md:mr-6" to="/faq">
+            <nuxt-link class="hover:text-white md:mr-6" to="/faq">
               FAQ
             </nuxt-link>
           </li>
           <li>
-            <nuxt-link
-              class="mr-4 hover:text-white md:mr-6"
-              to="/privacy-policy"
-            >
+            <nuxt-link class="hover:text-white md:mr-6" to="/privacy-policy">
               Privacy Policy
             </nuxt-link>
           </li>
@@ -24,10 +21,8 @@
           </li>
         </ul>
       </div>
-      <hr
-        class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
-      />
-      <p class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+      <hr class="border-gray-200 mx-auto dark:border-gray-700" />
+      <p class="block text-sm text-gray-600 text-center">
         © 2023 Onur Bas. All Rights Reserved.
       </p>
     </div>

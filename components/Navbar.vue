@@ -12,7 +12,9 @@
         </h1>
       </nuxt-link>
       <!-- THIS IS MOBILE NAV BAR -->
-      <div class="flex sm:hidden items-center justify-end w-full text-right">
+      <div
+        class="flex sm:hidden items-center justify-end w-full text-right z-40"
+      >
         <div class="relative w-full">
           <img
             class="ml-auto h-10 w-10 touch-manipulation"
