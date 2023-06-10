@@ -17,11 +17,12 @@
           <CountdownTimer :releaseDate="item.release_date" />
         </div>
       </div>
+      <!-- Removed loading:"lazy" for now, its cached anyway.
+       And it shouldnt be applied to images that is loaded in the viewport initially -->
       <nuxt-img
         class="absolute w-full h-full object-cover"
         :src="item.image_url"
         :alt="item.headline"
-        loading="lazy"
       />
     </div>
   </div>
