@@ -1,7 +1,7 @@
 <template>
-  <div class="space-y-5 mx-5">
-    <h1>Privacy Policy for EveryCountdown</h1>
-    <p>Effective Date: June 9, 2023</p>
+  <div class="space-y-5 mx-5 mt-10">
+    <h1 class="text-center">Privacy Policy for EveryCountdown</h1>
+    <p class="text-center">Effective Date: June 9, 2023</p>
 
     <p>
       EveryCountdown ("we," "us," or "our") is committed to protecting the
@@ -71,3 +71,12 @@
     </p>
   </div>
 </template>
+
+<style scoped>
+h2 {
+  @apply text-xl font-semibold mb-2;
+}
+p {
+  @apply text-secondary;
+}
+</style>

@@ -1,13 +1,13 @@
 <template>
-  <section class="mx-auto p-8">
+  <section class="mx-auto mt-10">
     <h1 class="font-bold mb-4 text-center">FAQ</h1>
 
     <div class="mb-8" v-for="item in faqItems" :key="item.question">
-      <h2 class="text-xl font-semibold mb-2">{{ item.question }}</h2>
+      <h2>{{ item.question }}</h2>
       <p class="text-secondary">{{ item.answer }}</p>
     </div>
     <div>
-      <h2 class="text-xl font-semibold mb-2">
+      <h2>
         Do you have any feedback or questions about this website that didn't get
         answered?
       </h2>
@@ -52,6 +52,8 @@ export default {
 };
 </script>
 
-<style>
-/* Add any custom styles here */
+<style scoped>
+h2 {
+  @apply text-xl font-semibold mb-2;
+}
 </style>
