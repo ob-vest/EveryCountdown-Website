@@ -30,7 +30,7 @@
               class="text-2xl text-secondary transition-colors duration-1000"
               active-class="text-white"
             >
-              <a>Movies</a></nuxt-link
+              Movies</nuxt-link
             >
             <nuxt-link
               @click="toggleMenu"
@@ -38,7 +38,7 @@
               class="text-2xl text-secondary transition-colors duration-1000"
               active-class="text-white"
             >
-              <a>TV</a>
+              TV
             </nuxt-link>
             <nuxt-link
               @click="toggleMenu"
@@ -46,7 +46,7 @@
               class="text-2xl text-secondary transition-colors duration-1000"
               active-class="text-white"
             >
-              <a>Anime</a>
+              Anime
             </nuxt-link>
             <nuxt-link
               @click="toggleMenu"
@@ -54,7 +54,7 @@
               class="text-2xl text-secondary transition-colors duration-1000"
               active-class="text-white"
             >
-              <a>Tech</a>
+              Tech
             </nuxt-link>
             <nuxt-link
               @click="toggleMenu"
@@ -62,7 +62,7 @@
               class="text-2xl text-secondary transition-colors duration-1000"
               active-class="text-white"
             >
-              <a>Games</a>
+              Games
             </nuxt-link>
             <nuxt-link
               @click="toggleMenu"
@@ -70,7 +70,7 @@
               class="text-2xl text-secondary transition-colors duration-1000"
               active-class="text-white"
             >
-              <a>Other</a>
+              Other
             </nuxt-link>
           </div>
         </div>
@@ -79,45 +79,45 @@
       <div class="hidden sm:flex items-center space-x-5">
         <nuxt-link
           to="/movie/catalog"
-          class="text-secondary transition-colors duration-1000"
+          class="text-secondary transition-colors duration-1000 hover-underline-animation"
           active-class="text-white"
         >
-          <button class="hover-underline-animation">Movies</button></nuxt-link
+          Movies</nuxt-link
         >
         <nuxt-link
           to="/tv/catalog"
-          class="text-secondary transition-colors duration-1000"
+          class="text-secondary transition-colors duration-1000 hover-underline-animation"
           active-class="text-white"
         >
-          <button class="hover-underline-animation">TV</button>
+          TV
         </nuxt-link>
         <nuxt-link
           to="/anime/catalog"
-          class="text-secondary transition-colors duration-1000"
+          class="text-secondary transition-colors duration-1000 hover-underline-animation"
           active-class="text-white"
         >
-          <button class="hover-underline-animation">Anime</button>
+          Anime
         </nuxt-link>
         <nuxt-link
           to="/tech/catalog"
-          class="text-secondary transition-colors duration-1000"
+          class="text-secondary transition-colors duration-1000 hover-underline-animation"
           active-class="text-white"
         >
-          <button class="hover-underline-animation">Tech</button>
+          Tech
         </nuxt-link>
         <nuxt-link
           to="/game/catalog"
-          class="text-secondary transition-colors duration-1000"
+          class="text-secondary transition-colors duration-1000 hover-underline-animation"
           active-class="text-white"
         >
-          <button class="hover-underline-animation">Games</button>
+          Games
         </nuxt-link>
         <nuxt-link
           to="/other/catalog"
-          class="text-secondary transition-colors duration-1000"
+          class="text-secondary transition-colors duration-1000 hover-underline-animation"
           active-class="text-white"
         >
-          <button class="hover-underline-animation">Other</button>
+          Other
         </nuxt-link>
       </div>
     </div>
