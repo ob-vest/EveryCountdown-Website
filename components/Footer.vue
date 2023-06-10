@@ -5,10 +5,11 @@
         <ul
           class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400"
         >
-          <!-- <li>
-            <a href="#" class="mr-4 hover:text-white md:mr-6">About</a>
-          </li> -->
-
+          <li>
+            <nuxt-link class="mr-4 hover:text-white md:mr-6" to="/faq">
+              FAQ
+            </nuxt-link>
+          </li>
           <li>
             <nuxt-link
               class="mr-4 hover:text-white md:mr-6"
@@ -19,9 +20,7 @@
           </li>
 
           <li>
-            <a href="mailto: everycountdown@invoke.dk" class="hover:text-white"
-              >Contact</a
-            >
+            <a :href="'mailto:' + email" class="hover:text-white">Contact</a>
           </li>
         </ul>
       </div>
@@ -34,3 +33,8 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+const config = useRuntimeConfig();
+const email = config.public.email;
+</script>
