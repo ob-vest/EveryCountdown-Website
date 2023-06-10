@@ -22,7 +22,7 @@
         </ul>
       </div>
       <hr class="border-gray-200 mx-auto dark:border-gray-700" />
-      <p class="block text-sm text-gray-600 text-center">
+      <p class="block text-sm text-gray-400 text-center">
         © 2023 Onur Bas. All Rights Reserved.
       </p>
     </div>
