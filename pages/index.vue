@@ -75,9 +75,9 @@ popularItems.value = popularData.value as CategoryItem;
 endingSoonItems.value = recentData.value as CategoryItem;
 
 useSeoMeta({
-  title: "EveryCountdown",
+  title: "EveryCountdown | Every Countdown in One Place",
   description:
-    "Discover exciting release dates and upcoming events spanning from movies to tech events, with countdowns and access to videos and news coverage for the event.",
+    "Discover exciting release dates and upcoming events spanning from movies to tech events, with countdowns and links to videos and news coverage for the event.",
 });
 </script>
 <style>

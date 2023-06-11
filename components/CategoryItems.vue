@@ -27,6 +27,10 @@ export default {
       type: String,
       required: true,
     },
+    headerTitle: {
+      type: String,
+      required: false,
+    },
   },
   async setup(props) {
     const items = ref(null as CategoryItem[] | null);
@@ -37,11 +41,15 @@ export default {
       baseURL: config.public.baseURL,
     });
     useSeoMeta({
-      title: "List of " + props.title.toLowerCase() + " | EveryCountdown",
+      title:
+        props.headerTitle == null
+          ? "Discover the Latest " + props.title + " and Release Dates"
+          : props.headerTitle,
+
       description:
-        "List of all " +
+        "Explore all countdowns related to " +
         props.title.toLowerCase() +
-        " with their countdowns. Select to find all the relevant information, including the release date, description, and more.",
+        " and sorted by when they are airing. Get to know all the details about release date, description, and more.",
     });
     items.value = data.value as CategoryItem[];
     return {

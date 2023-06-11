@@ -71,7 +71,13 @@
     </p>
   </div>
 </template>
-
+<script setup lang="ts">
+useSeoMeta({
+  title: "Privacy Policy",
+  description:
+    "The privacy policy for EveryCountdown. It might be boring but it's important.",
+});
+</script>
 <style scoped>
 h2 {
   @apply text-xl font-semibold mb-2;

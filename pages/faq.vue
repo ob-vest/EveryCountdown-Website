@@ -49,6 +49,13 @@ export default {
       ],
     };
   },
+  setup() {
+    useSeoMeta({
+      title: "Frequently Asked Questions | EveryCountdown",
+      description:
+        "Do you have any questions about EveryCountdown? Check out the FAQ to see if it's already been answered.",
+    });
+  },
 };
 </script>
 

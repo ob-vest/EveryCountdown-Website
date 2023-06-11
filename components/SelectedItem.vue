@@ -58,10 +58,10 @@ const { data } = await useFetch(route.path, {
 item.value = data.value as CategoryItem;
 
 useSeoMeta({
-  title: item.value.headline + " | EveryCountdown",
+  title: item.value.headline + " | " + item.value.subheadline + " Countdown",
   description:
-    "Check out the countdown for " +
+    "Counting down to " +
     item.value.headline +
-    " on EveryCountdown and find all the relevant information, including the release date, description, and more.",
+    ". Find all the relevant information, including the release date, description, and more.",
 });
 </script>
