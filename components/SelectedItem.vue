@@ -59,9 +59,15 @@ item.value = data.value as CategoryItem;
 
 useSeoMeta({
   title: item.value.headline + " | " + item.value.subheadline + " Countdown",
+  ogTitle: item.value.headline + " | " + item.value.subheadline + " Countdown",
   description:
     "Counting down to " +
     item.value.headline +
     ". Find all the relevant information, including the release date, description, and more.",
+  ogDescription:
+    "Counting down to " +
+    item.value.headline +
+    ". Find all the relevant information, including the release date, description, and more.",
+  ogImage: item.value.image_url,
 });
 </script>
