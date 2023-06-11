@@ -43,7 +43,7 @@ export default {
     useSeoMeta({
       title:
         props.headerTitle == null
-          ? "Discover the Latest " + props.title + " and Release Dates"
+          ? "Discover Upcoming " + props.title + " and Their Release Dates"
           : props.headerTitle,
 
       description:
