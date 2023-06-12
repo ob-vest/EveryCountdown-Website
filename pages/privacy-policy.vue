@@ -73,7 +73,7 @@
 </template>
 <script setup lang="ts">
 useSeoMeta({
-  title: "Privacy Policy",
+  title: "Privacy Policy | EveryCountdown",
   description:
     "The privacy policy for EveryCountdown. It might be boring but it's important.",
 });

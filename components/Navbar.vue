@@ -7,9 +7,9 @@
         >
           <img class="h-14 w-14" src="/logo.svg" alt="Home" />
         </div>
-        <h1 class="text-2xl font-semibold hidden sm:block">
+        <div class="text-2xl font-semibold hidden sm:block">
           <span class="text-secondary">Every</span>Countdown
-        </h1>
+        </div>
       </nuxt-link>
       <!-- THIS IS MOBILE NAV BAR -->
       <div
