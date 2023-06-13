@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="relative">
     <div class="flex justify-between items-center py-5 mx-5">
       <nuxt-link class="flex items-center space-x-3" to="/">
         <div
@@ -7,7 +7,7 @@
         >
           <img class="h-14 w-14" src="/logo.svg" alt="Home" />
         </div>
-        <div class="text-2xl font-semibold hidden sm:block">
+        <div class="text-2xl font-semibold hidden md:block">
           <span class="text-secondary">Every</span>Countdown
         </div>
       </nuxt-link>
@@ -98,6 +98,21 @@
       </div>
       <!-- THIS IS DESKTOP NAV BAR -->
       <div class="hidden sm:flex items-center space-x-5">
+        <svg
+          @click="toggleSearch"
+          class="w-10 mr-0 h-5 text-gray-400 hover:cursor-pointer"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          ></path>
+        </svg>
         <nuxt-link
           to="/movie/catalog"
           class="text-secondary transition-colors duration-1000 hover-underline-animation"
@@ -142,7 +157,11 @@
         </nuxt-link>
       </div>
     </div>
-    <SearchField v-if="showSearch" @toggle-search="showSearch = $event" />
+    <SearchField
+      class="absolute"
+      v-if="showSearch"
+      @toggle-search="showSearch = $event"
+    />
   </nav>
 </template>
 

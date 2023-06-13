@@ -1,6 +1,5 @@
 <template>
-  <!-- <div class="absolute w-full h-full bg-black bg-opacity-50"></div> -->
-  <div class="relative z-10 mx-2 sm:mx-10">
+  <div class="z-40 px-2 sm:px-10 animate-fade-in w-full">
     <form @submit.prevent="onSubmit">
       <label
         for="default-search"
@@ -29,9 +28,10 @@
         </div>
         <input
           v-model="searchText"
+          ref="searchInput"
           type="search"
           id="default-search"
-          class="block w-full p-4 pl-10 text-sm rounded-2xl appearance-none bg-black border border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+          class="block w-full p-4 pl-10 text-sm rounded-2xl appearance-none outline-none bg-black border border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
           placeholder="Search for a movie, tv show, game..."
           required
         />
@@ -43,33 +43,38 @@
         </button>
       </div>
     </form>
-    <div
+    <section
+      class="space-y-5 mt-5 w-full p-3 bg-gray-800 border border-gray-600 rounded-2xl max-h-[50vh] overflow-y-scroll"
       v-if="items"
-      class="absolute mt-5 space-y-5 w-full p-3 bg-gray-800 rounded-2xl"
     >
-      <nuxt-link
-        :to="'/' + item.type + '/' + item.id"
-        @click="toggleSearch"
-        class="flex justify-between"
-        v-for="(item, index) in items"
-        :key="index"
-      >
-        <p class="font-semibold">{{ item.headline }}</p>
-        <p class="text-gray-400">{{ item.subheadline }}</p>
-      </nuxt-link>
-    </div>
+      <h2 class="mx-auto text-2xl font-semibold">Search results</h2>
+      <div class="space-y-3">
+        <nuxt-link
+          :to="'/' + item.type + '/' + item.id"
+          @click="toggleSearch"
+          class="flex justify-between"
+          v-for="(item, index) in items"
+          :key="index"
+        >
+          <p class="font-semibold text-left">{{ item.headline }}</p>
+          <p class="text-gray-400 text-right">{{ item.subheadline }}</p>
+        </nuxt-link>
+      </div>
+    </section>
   </div>
 </template>
 <script setup lang="ts">
-const searchText = ref("");
 import { CategoryItem } from "@/types/CategoryItem";
+import { debounce } from "~/helper";
 
+const searchText = ref("");
+const searchInput = ref(null);
 const items = ref(null as CategoryItem[] | null);
 const emits = defineEmits(["toggle-search"]);
 const toggleSearch = () => {
   emits("toggle-search", false);
 };
-const onSubmit = async () => {
+const onSubmit = debounce(async () => {
   console.log(searchText.value);
   const config = useRuntimeConfig();
   const { data } = await useFetch(`/search?text=${searchText.value}`, {
@@ -77,5 +82,15 @@ const onSubmit = async () => {
   });
   items.value = data.value as CategoryItem[];
   console.log(data);
-};
+}, 500);
+watch(searchText, (newValue, oldValue) => {
+  if (newValue != "" && newValue.length > 2) {
+    onSubmit();
+  } else {
+    items.value = null;
+  }
+});
+onMounted(async () => {
+  searchInput.value.focus();
+});
 </script>
