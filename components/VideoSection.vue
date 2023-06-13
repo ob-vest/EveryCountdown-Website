@@ -20,7 +20,7 @@
           ></iframe>
         </div>
 
-        <p>{{ video.title }}</p>
+        <p class="text-secondary mt-2">{{ video.title }}</p>
       </swiper-slide>
     </swiper-container>
   </section>

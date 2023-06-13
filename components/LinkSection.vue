@@ -1,7 +1,7 @@
 <template>
   <section class="space-y-2">
     <h2>Links</h2>
-    <div class="flex flex-col justify-start items-start space-y-4">
+    <div class="flex flex-col justify-start items-start space-y-4 w-full">
       <a
         v-for="(link, index) in links"
         :key="index"
@@ -10,11 +10,11 @@
         target="_blank"
       >
         <p class="text-left mx-5 font-bold">{{ index + 1 }}</p>
-        <div class="text-left mx-auto w-full">
+        <div class="text-left mx-auto w-full overflow-x-hidden">
           <h3 class="line-clamp-1">
             {{ link.title }}
           </h3>
-          <p class="text-secondary text-opacity-50 text-clip">
+          <p class="text-secondary text-opacity-50">
             {{ link.url }}
           </p>
         </div>

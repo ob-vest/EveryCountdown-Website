@@ -15,7 +15,7 @@
     </section>
 
     <section class="space-y-5 mx-5">
-      <h2>Popular</h2>
+      <h2>Popular countdowns</h2>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
       >
@@ -33,7 +33,7 @@
       </div>
     </section>
     <section class="space-y-5">
-      <h2>Ending soon</h2>
+      <h2>Airing soon</h2>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full text-center"
       >

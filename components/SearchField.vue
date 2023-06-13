@@ -2,7 +2,7 @@
   <div class="z-40 px-2 sm:px-10 animate-fade-in w-full">
     <form @submit.prevent="onSubmit">
       <label
-        for="default-search"
+        for="countdown-search"
         class="mb-2 text-sm font-medium sr-only text-white"
         >Search</label
       >
@@ -30,7 +30,7 @@
           v-model="searchText"
           ref="searchInput"
           type="search"
-          id="default-search"
+          id="countdown-search"
           class="block w-full p-4 pl-10 text-sm rounded-2xl appearance-none outline-none bg-black border border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
           placeholder="Search for a movie, tv show, game..."
           required
