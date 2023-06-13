@@ -4,7 +4,7 @@
     <!-- <SelectedItem /> -->
 
     <!-- <Countdown></Countdown> -->
-
+    <!-- <SearchField /> -->
     <NuxtPage class="min-h-screen" />
     <!-- <Movies class="min-h-screen" /> -->
     <Footer />

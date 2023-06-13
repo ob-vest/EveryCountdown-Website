@@ -11,17 +11,36 @@
           <span class="text-secondary">Every</span>Countdown
         </div>
       </nuxt-link>
+
       <!-- THIS IS MOBILE NAV BAR -->
       <div
         class="flex sm:hidden items-center justify-end w-full text-right z-40"
       >
         <div class="relative w-full">
-          <img
-            class="ml-auto h-10 w-10 touch-manipulation"
-            @click="toggleMenu"
-            src="/burgermenu.svg"
-            alt="Category menu"
-          />
+          <div class="ml-auto flex justify-end items-center">
+            <svg
+              @click="toggleSearch"
+              class="w-10 mr-5 h-7 text-gray-400 hover:cursor-pointer"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+            <img
+              class="h-10 w-8 touch-manipulation"
+              @click="toggleMenu"
+              src="/burgermenu.svg"
+              alt="Category menu"
+            />
+          </div>
+
           <div
             v-if="showMenu"
             class="animate-fade-in max-w-full flex flex-col space-y-5 w-56 right-0 absolute mt-5 bg-stone-800 rounded-lg p-5"
@@ -123,6 +142,7 @@
         </nuxt-link>
       </div>
     </div>
+    <SearchField v-if="showSearch" @toggle-search="showSearch = $event" />
   </nav>
 </template>
 
@@ -131,11 +151,17 @@ export default {
   data() {
     return {
       showMenu: false,
+      showSearch: false,
     };
   },
   methods: {
     toggleMenu() {
       this.showMenu = !this.showMenu;
+      this.showSearch = false;
+    },
+    toggleSearch() {
+      this.showSearch = !this.showSearch;
+      this.showMenu = false;
     },
   },
 };
