@@ -1,7 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
-  modules: ["@nuxt/image"],
+  modules: ["@nuxt/image", "nuxt-simple-sitemap"],
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ["/"],
+    },
+  },
   app: {
     head: {
       htmlAttrs: {
@@ -14,6 +20,7 @@ export default defineNuxtConfig({
     public: {
       baseURL: "https://everycountdown-apiservice-production.up.railway.app",
       email: "everycountdown@invoke.dk",
+      siteUrl: "https://everycountdown.com",
     },
   },
   postcss: {
