@@ -50,3 +50,8 @@ I wanted to build a website that displays all the events *(Movies, games, electi
 - **Components:** Creating complex interactive and reusable components with Vue.js required thoughtful planning and managing component state effectively, see components folder.
 
 - **Deployment:** I have used Github Actions before but it was in a very tedious way as I had to create a YAML file that finds the projects output folder, connect to web-hotel through SSH and then deploy the code by transferring the files. But this time it was way easier I have configured Railway so it will deploy code that is pushed to the main branch, which was a seamless experience.
+
+## Thinking back
+- I didn't have much knowledge about managing a relational database, other than through Core Data (an Apple Framework), which serves as an abstraction layer on top of a SQLite-based database. That's why I didn't consider indexing certain parts of the database, such as the title and subtitle for the search results. Even though there weren't many queries to process at the moment, but the nature of the service involved an ever-expanding dataset, making it a potential bottleneck.
+
+- I should have handled null values in a proper way. For instance, in the case of a video entity, all of them had null values in some of their category columns, as they only required one of them to have a value. If I recall correctly, this was addressed within a method in the database, where it needed to be associated with at least one category, like TV or movie.
