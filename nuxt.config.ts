@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      baseURL: "https://everycountdown-apiservice-production.up.railway.app",
+      baseURL: process.env.API_BASE_URL,
       email: "everycountdown@invoke.dk",
       siteUrl: "https://everycountdown.com",
     },
